@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const app = express();
 const { MongoClient } = require('mongodb');
 const Schema = mongoose.Schema;
@@ -39,6 +40,7 @@ const Book =  mongoose.model('Book', BookSchema);
 // const Property = mongoose.model('Property', PropertySchema);
 // Parse JSON requests
 app.use(bodyParser.json());
+app.use(cors())
 
 // Connect to MongoDB
 mongoose.connect(uri, { useNewUrlParser: true });
